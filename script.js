@@ -161,7 +161,9 @@ document.querySelectorAll('.item button').forEach((item, i) => {
 
         const renter = prompt("Please, print renter Name and Surname")
         const regex = /^[A-Za-z]{3,}\s+[A-Za-z]{3,}$/
+        const prob = renter.indexOf(' ');
 
+        console.log(prob)
         const isTrue = regex.test(renter) ? (
             
             DataBase.orderedRooms.push({
@@ -171,7 +173,7 @@ document.querySelectorAll('.item button').forEach((item, i) => {
             }),
             item.classList.add("isOrdered"),
             item.innerText = "Is Ordered",
-            alert("Congratulations!\nYou successful rent this room :)")
+            alert(`Congratulations ${renter.slice(0, prob)}!\nYou successful rent this room :)`)
         ) : alert("Error!\n Print your Name and Surname. Example - Joker Trump")
     })
 })
